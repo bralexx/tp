@@ -1,3 +1,4 @@
-int b = 2;
-int v;
+class Class_test{
+public:
 int f(int x);
+};

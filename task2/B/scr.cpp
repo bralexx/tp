@@ -1,8 +1,6 @@
 #include "lib.h"
 
-int f(int x) {
+int Class_test::f(int x) {
 
- v = x;
-
-return v;
-}
+return x + 10;
+};
