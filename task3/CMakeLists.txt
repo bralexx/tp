@@ -9,9 +9,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/lib)
 
 
-add_subdirectory(${SimpleLibrary_SOURCE_DIR}/src)
 add_executable(Main ${SimpleLibrary_SOURCE_DIR}/main.cpp)
 add_executable(MainLib ${SimpleLibrary_SOURCE_DIR}/main_lib.cpp)
+
+add_subdirectory(${SimpleLibrary_SOURCE_DIR}/scr}
 
 target_link_libraries(MainLib buffer)
 
