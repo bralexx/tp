@@ -8,7 +8,7 @@ TEST(A, B) {
 
 	for(int i = -10; i < 10000; ++i) try {
 		IsLeap(i);
-	catch(std::invalid_argument) {}
+	} catch(std::invalid_argument) {}
 
 	for(int i = -10; i < 100; ++i) for(int j =-100; j < 100; ++j) try {
 		GetMonthDays(i,j);

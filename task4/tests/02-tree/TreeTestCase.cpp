@@ -43,8 +43,8 @@ TEST(A, B) {
 	ASSERT_EQ(false, GetTree("/tmp/1/2/", false) == GetTree("/tmp/1/", false));
 
 	dir("/tmp/1/2/4/5/");
-	FilterEmptyNodes("/tmp/1/2/", "./4/5/");
-	FilterEmptyNodes("/tmp/1/", "./2/3/file/");
+	FilterEmptyNodes(GetTree("/tmp/1/2/", false), "./4/5/");
+	FilterEmptyNodes(GetTree("/tmp/1/",false), "./2/3/file/");
 
 	boost::filesystem::remove_all("/tmp/1/");
 }
