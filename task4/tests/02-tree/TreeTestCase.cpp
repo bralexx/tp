@@ -56,6 +56,6 @@ TEST(A, B) {
         FilterEmptyNodes(GetTree("/tmp/1/2/file", false), ".");
         ASSERT_EQ(1, 2);
 	    } catch (std::invalid_argument) {}
-	//boost::filesystem::remove_all("/tmp/1/");
+	boost::filesystem::remove_all("/tmp/1/");
 }
 
