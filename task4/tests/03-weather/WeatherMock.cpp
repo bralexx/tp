@@ -16,6 +16,6 @@ cpr::Response WeatherMock::Get(const std::string& city, const cpr::Url& url) {
 		} else answer.text += city[i];
 	}
     	answer.text += "}}]}";
-	answer.status_code = 10;
+	answer.status_code = 200;
     	return answer;
 }
