@@ -3,6 +3,7 @@
 //
 #include "TreeTestCase.h"
 #include "Tree.h"
+#include <iostream>
 
 void dir(const std::string& path) {
     boost::filesystem::create_directory(boost::filesystem::unique_path(path));
@@ -34,17 +35,22 @@ TEST(A, B) {
 	touch("/tmp/1/2/3/file/");
 	dir("/tmp/1/2/4");
 	touch("/tmp/1/2/4/file/");
-
+std::cout << 1<< '\n';
 	ASSERT_EQ(GetTree("/tmp/1/", false), GetTree("/tmp/1/", false));
 	ASSERT_EQ(GetTree("/tmp/1/", true), GetTree("/tmp/1/", true));
+std::cout << 2<< '\n';
 
 	ASSERT_EQ(true, GetTree("/tmp/1/", false) == GetTree("/tmp/1/", false));
 	ASSERT_EQ(false, GetTree("/tmp/1/2/", false) == GetTree("/tmp/1/", false));
+std::cout << 3<< '\n';
 
 	dir("/tmp/1/2/4/5/");
+std::cout << 33<< '\n';
 	FilterEmptyNodes(GetTree("/tmp/1/2/", false), "./4/5/");
+std::cout << 4<< '\n';
 	FilterEmptyNodes(GetTree("/tmp/1/",false), "./2/3/file/");
 
+std::cout << 5<< '\n';
 	boost::filesystem::remove_all("/tmp/1/");
 }
 
