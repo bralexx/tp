@@ -8,7 +8,7 @@
 #include <Weather.h>
 
 struct WeatherMock : public Weather {
+	cpr::Response Get(const std::string& city, const cpr::Url& url) override;
 };
-
 
 
