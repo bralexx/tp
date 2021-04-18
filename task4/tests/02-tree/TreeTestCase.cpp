@@ -41,21 +41,13 @@ TEST(A, B) {
 	dir("/tmp/1/2/4/6/7");
         touch("/tmp/1/2/4/6/7/file/");
 
-
 	ASSERT_EQ(GetTree("/tmp/1/", false), GetTree("/tmp/1/", false));
 	ASSERT_EQ(GetTree("/tmp/1/", true), GetTree("/tmp/1/", true));
-std::cout << 2<< '\n';
-
 	ASSERT_EQ(true, GetTree("/tmp/1/", false) == GetTree("/tmp/1/", false));
 	ASSERT_EQ(false, GetTree("/tmp/1/2/", false) == GetTree("/tmp/1/", false));
-std::cout << 3<< '\n';
-
 	dir("/tmp/1/2/4/5/");
-std::cout << 33<< '\n';
 	FilterEmptyNodes(GetTree("/tmp/1/2/", false), "./4/5/");
-std::cout << 4<< '\n';
 	FilterEmptyNodes(GetTree("/tmp/1/",false), "./2/3/file/");
-
         FilterEmptyNodes(GetTree("/tmp/1/", false), ".");
         FilterEmptyNodes(GetTree("/tmp/1/", true), ".");
         FilterEmptyNodes(GetTree("/tmp/1/", false), ".");
@@ -63,8 +55,6 @@ std::cout << 4<< '\n';
         FilterEmptyNodes(GetTree("/tmp/1/2/file", false), ".");
         ASSERT_EQ(1, 2);
 	    } catch (std::invalid_argument) {}
-
-std::cout << 5<< '\n';
 	boost::filesystem::remove_all("/tmp/1/");
 }
 
