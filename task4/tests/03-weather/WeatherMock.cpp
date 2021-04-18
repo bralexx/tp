@@ -9,7 +9,7 @@ cpr::Response WeatherMock::Get(const std::string& city, const cpr::Url& url) {
 	std::string name = "", list = "";
 	bool is_name = true;
 
-	for(i = 0; i < city.size(); ++i) {
+	for(int i = 0; i < city.size(); ++i) {
 		if(is_name && city[i] == ' ') {
 			is_name = false;
 			answer.text += + "},\"list\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",{\"main\":{\"temp\":";
