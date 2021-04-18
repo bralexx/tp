@@ -35,7 +35,12 @@ TEST(A, B) {
 	touch("/tmp/1/2/3/file/");
 	dir("/tmp/1/2/4");
 	touch("/tmp/1/2/4/file/");
-std::cout << 1<< '\n';
+	dir("/tmp/1/2/4/6");
+        touch("/tmp/1/2/4/6file/");
+	dir("/tmp/1/2/4/6/7");
+        touch("/tmp/1/2/4/6/7file/");
+
+
 	ASSERT_EQ(GetTree("/tmp/1/", false), GetTree("/tmp/1/", false));
 	ASSERT_EQ(GetTree("/tmp/1/", true), GetTree("/tmp/1/", true));
 std::cout << 2<< '\n';
