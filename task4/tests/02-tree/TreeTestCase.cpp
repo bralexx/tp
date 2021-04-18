@@ -45,6 +45,7 @@ TEST(A, B) {
 	ASSERT_EQ(GetTree("/tmp/1/", true), GetTree("/tmp/1/", true));
 	ASSERT_EQ(true, GetTree("/tmp/1/", false) == GetTree("/tmp/1/", false));
 	ASSERT_EQ(false, GetTree("/tmp/1/2/", false) == GetTree("/tmp/1/", false));
+	ASSERT_EQ(false, GetTree("/tmp/1/", true) == GetTree("/tmp/1/", false));
 	dir("/tmp/1/2/4/5/");
 	FilterEmptyNodes(GetTree("/tmp/1/2/", false), "./4/5/");
 	FilterEmptyNodes(GetTree("/tmp/1/",false), "./2/3/file/");
