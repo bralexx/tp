@@ -30,15 +30,16 @@ TEST(A, B) {
 	} catch (std::invalid_argument) {}
 
 	dir("/tmp/1/2/");
+	dir("/tmp/1/74823674729/");
 	touch("/tmp/1/2/file/");
 	dir("/tmp/1/2/3/");
 	touch("/tmp/1/2/3/file/");
 	dir("/tmp/1/2/4");
 	touch("/tmp/1/2/4/file/");
 	dir("/tmp/1/2/4/6");
-        touch("/tmp/1/2/4/6file/");
+        touch("/tmp/1/2/4/6/file/");
 	dir("/tmp/1/2/4/6/7");
-        touch("/tmp/1/2/4/6/7file/");
+        touch("/tmp/1/2/4/6/7/file/");
 
 
 	ASSERT_EQ(GetTree("/tmp/1/", false), GetTree("/tmp/1/", false));
@@ -56,7 +57,7 @@ std::cout << 4<< '\n';
 	FilterEmptyNodes(GetTree("/tmp/1/",false), "./2/3/file/");
 
 	try {
-        FilterEmptyNodes(GetTree("/tmp/1/2/file", false), ".");
+        FilterEmptyNodes(GetTree("/tmp/1/", false), ".");
         ASSERT_EQ(1, 2);
 	    } catch (std::invalid_argument) {}
 
