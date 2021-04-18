@@ -56,8 +56,11 @@ std::cout << 33<< '\n';
 std::cout << 4<< '\n';
 	FilterEmptyNodes(GetTree("/tmp/1/",false), "./2/3/file/");
 
-	try {
         FilterEmptyNodes(GetTree("/tmp/1/", false), ".");
+        FilterEmptyNodes(GetTree("/tmp/1/", true), ".");
+        FilterEmptyNodes(GetTree("/tmp/1/", false), ".");
+	try {
+        FilterEmptyNodes(GetTree("/tmp/1/2/file", false), ".");
         ASSERT_EQ(1, 2);
 	    } catch (std::invalid_argument) {}
 
