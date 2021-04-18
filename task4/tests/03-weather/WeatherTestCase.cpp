@@ -21,7 +21,7 @@ TEST(A, B) {
     	ASSERT_EQ(mock.GetTomorrowDiff("1000 5000"), "The weather in 1000 5000 tomorrow will be much warmer than today.");
 
 	try {
-        mosk.GetDifferenceString("asdgsva", "x");
+        mock.GetDifferenceString("asdgsva", "x");
         ASSERT_EQ(1, 2);
     	} catch (...) {
     	}

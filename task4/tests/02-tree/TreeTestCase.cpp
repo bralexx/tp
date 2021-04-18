@@ -17,16 +17,16 @@ void touch(const std::string& path) {
 TEST(A, B) {
 	try{
 		GetTree("ghjkhdfkjlsvhfhkjdsb", false);
-		ASSERT(false);
-	catch (std::invalid_argument) {}
+		ASSERT_EQ(1,532);
+	} catch (std::invalid_argument) {}
 
 	dir("/tmp/1/");
 	touch("/tmp/1/file/");
 
 	try{
 		GetTree("/tmp/1/file", false);
-		ASSERT(false);
-	catch (std::invalid_argument) {}
+		ASSERT_EQ(234, 4334);
+	} catch (std::invalid_argument) {}
 
 	dir("/tmp/1/2/");
 	touch("/tmp/1/2/file/");
