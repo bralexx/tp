@@ -31,15 +31,15 @@ TEST(A, B) {
 
 	dir("/tmp/1/2/");
 	dir("/tmp/1/74823674729/");
-	touch("/tmp/1/2/file/");
+	touch("/tmp/1/2/file");
 	dir("/tmp/1/2/3/");
-	touch("/tmp/1/2/3/file/");
+	touch("/tmp/1/2/3/file");
 	dir("/tmp/1/2/4");
-	touch("/tmp/1/2/4/file/");
+	touch("/tmp/1/2/4/file");
 	dir("/tmp/1/2/4/6");
-        touch("/tmp/1/2/4/6/file/");
+        touch("/tmp/1/2/4/6/file");
 	dir("/tmp/1/2/4/6/7");
-        touch("/tmp/1/2/4/6/7/file/");
+        touch("/tmp/1/2/4/6/7/file");
 
 	ASSERT_EQ(GetTree("/tmp/1/", false), GetTree("/tmp/1/", false));
 	ASSERT_EQ(GetTree("/tmp/1/", true), GetTree("/tmp/1/", true));
