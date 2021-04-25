@@ -1,0 +1,37 @@
+//
+// Created by Pavel Akhtyamov on 02.05.2020.
+//
+
+#include "WeatherMock.h"
+
+cpr::Response WeatherMock::Get(const std::string& city, const cpr::Url& url) {
+    std::string t1 = "",
+                t2 = "";
+    int s = 200;
+    try {
+        int i;
+        for (i = 0; city[i] != ' '; ++i) {
+            t1 += city[i];
+        }
+        ++i;
+        for (; i < city.size(); ++i) {
+            t2 += city[i];
+        }
+        if (t1.size() == 0 || t2.size() == 0) {
+            throw "1";
+        }
+    } catch (...) {
+        s = 0;
+        t1 = "1";
+        t2 = "1";
+    }
+
+    cpr::Response answer;
+    answer.status_code = s;
+    answer
+
+
+.text = "{\"main\":{\"temp\":" + t1 + "},\"list\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",{\"main\":{\"temp\":" + t2 + "}}]}";
+    
+    return res;
+}

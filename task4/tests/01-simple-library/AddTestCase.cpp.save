@@ -1,0 +1,12 @@
+#include "AddTestCase.h"
+#include "Functions.h"
+#include <iostream>
+
+TEST(Test1, test1) {
+	for(int i = -1000; i < 1000; ++i) for(int j = -1000; j < 1000; ++j)
+	ASSERT_EQ(i+j, Add(i,j));
+
+	for(int i = -10; i < 10000; ++i) try {
+		IsLeap(i);
+		}catch(std::exeption) {}
+std::invalid_argument
