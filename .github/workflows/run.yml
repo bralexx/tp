@@ -33,10 +33,10 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Distributive
           path: |
             task5/bin
             task5/lib
+          name: Distributive
       
       - name: UploadTestReport
         uses: actions/upload-artifact@v2
