@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+    branches: [ task5 ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v2
+        with:
+          ref: task5
+      
+      - name: clone gtests
+        uses: actions/checkout@v2
+        with:
+          path: ./task5/3rdparty
+          ref: google/googletest
+      
+      - name: Build
+        run: mkdir task5/build; cd task5/build; cmake ..; cmake --build .;
+        
+      - name: Test
+        uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+        with:
+          working-directory: ./task5/bin
+          exec-path: ./CTestExe
+          report-path: ./report
+      
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./task5/bin ./task5/lib
+          name: Distributive
+      
+      - name: UploadTestReport
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./task5/bin/report
+          name: test-report
