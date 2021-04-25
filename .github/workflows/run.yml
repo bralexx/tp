@@ -29,14 +29,12 @@ jobs:
           working-directory: ./task5/bin
           exec-path: ./CTestExe
           report-path: ./report
-      - name: tree
-        run: tree
       
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
         with:
           name: Distributive
-          path:
+          path: |
             task5/bin
             task5/lib
       
