@@ -29,8 +29,8 @@ jobs:
           working-directory: ./task5/bin
           exec-path: ./CTestExe
           report-path: ./report
-      - name: echo
-        run: echo ${{github.workspace}}
+      - name: tree
+        run: tree
       
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
