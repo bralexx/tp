@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ./task5/3rdparty
-          ref: google/googletest
+          repository: google/googletest
       
       - name: Build
         run: mkdir task5/build; cd task5/build; cmake ..; cmake --build .;
