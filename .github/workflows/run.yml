@@ -28,7 +28,7 @@ jobs:
         with:
           working-directory: ./task5/bin
           exec-path: ./CTestExe
-          report-path: ./report
+          report-path: ./report.xml
       
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
@@ -41,5 +41,5 @@ jobs:
       - name: UploadTestReport
         uses: actions/upload-artifact@v2
         with:
-          path: ./task5/bin/report
+          path: ./task5/bin/report.xml
           name: test-report
