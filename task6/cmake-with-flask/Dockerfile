@@ -6,6 +6,6 @@ RUN pip3 install Flask
 
 WORKDIR .
 RUN useradd -ms /bin/bash techproguser && mkdir build && cd build
-RUN tree && cmake .. && make
+RUN echo 1 && cmake .. && make
 USER techproguser
 CMD ["python3", "app.py", "--port", "5000", "--host", "0.0.0.0"]
