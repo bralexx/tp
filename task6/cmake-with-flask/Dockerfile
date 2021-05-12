@@ -1,15 +1,8 @@
-FROM ubuntu
-ADD ..
-WORKDIR .
-ENV TZ=Europe/Minsk
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
-RUN apt update; apt install -y g++ cmake make python3.9 python3-pip
-RUN python3.9 -m pip install flask
-RUN mkdir build
-RUN cd build
-RUN cmake ..
-RUN make
-RUN cd ..
-RUN useradd techproguser
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y cmake make python3 python3-pip
+RUN pip3 install Flask
+
+RUN useradd -ms /bin/bash techproguser && mkdir build && cd build && cmake .. && make
 USER techproguser
-CMD ["python3.9", "app.py", "--port", "5000", "--host", "0.0.0.0"]
+CMD ["python3", "app.py", "--port", "5000", "--host", "0.0.0.0"]
